@@ -1,0 +1,427 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.98 0 0);
+  --foreground: oklch(0.15 0 0);
+  --card: oklch(0.995 0 0);
+  --card-foreground: oklch(0.15 0 0);
+  --popover: oklch(0.995 0 0);
+  --popover-foreground: oklch(0.15 0 0);
+  --primary: oklch(0.42 0.09 155);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.95 0.02 155);
+  --secondary-foreground: oklch(0.15 0 0);
+  --muted: oklch(0.93 0 0);
+  --muted-foreground: oklch(0.45 0 0);
+  --accent: oklch(0.94 0.04 155);
+  --accent-foreground: oklch(0.15 0 0);
+  --destructive: oklch(0.55 0.21 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.91 0 0);
+  --input: oklch(0.93 0 0);
+  --ring: oklch(0.55 0.18 240);
+  --chart-1: oklch(0.55 0.18 240);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.55 0.18 240);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.94 0.03 240);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.55 0.18 240);
+  --bn-green: #1a5336;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --font-sans: var(--font-poppins), 'Poppins', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Mobile-friendly animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(2deg);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Animation utility classes */
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+/* Initial hidden state for scroll animations */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-animate-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.scroll-animate-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Premium touch feedback for mobile - creates satisfying "pop" effect on press */
+.touch-feedback {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  will-change: transform, box-shadow;
+  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              box-shadow 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              filter 0.2s ease-out;
+}
+
+/* Active state - press down effect */
+.touch-feedback:active {
+  transform: scale(0.97) translateY(1px);
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.15);
+  filter: brightness(0.97);
+}
+
+/* Card-specific touch effects - more subtle for larger surfaces */
+.touch-card {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  will-change: transform, box-shadow;
+  transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.25s ease-out;
+}
+
+/* Desktop hover */
+@media (hover: hover) and (pointer: fine) {
+  .touch-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* Mobile tap */
+@media (hover: none) {
+  .touch-card:active {
+    transform: scale(0.985) translateY(2px);
+    box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.touch-card:active {
+  transform: scale(0.985) translateY(2px);
+  box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.12);
+}
+
+/* Button-specific touch effects - snappy and responsive */
+.touch-button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  will-change: transform, box-shadow;
+  transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              background-color 0.15s ease-out,
+              filter 0.15s ease-out;
+}
+
+/* Desktop hover */
+@media (hover: hover) and (pointer: fine) {
+  .touch-button:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Mobile tap - satisfying press effect */
+@media (hover: none) {
+  .touch-button:active {
+    transform: scale(0.95) translateY(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    filter: brightness(0.92);
+  }
+}
+
+.touch-button:active {
+  transform: scale(0.95) translateY(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  filter: brightness(0.95);
+}
+
+/* Icon container touch effect - subtle lift */
+.touch-icon {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 0.2s ease-out;
+}
+
+/* Desktop hover */
+@media (hover: hover) and (pointer: fine) {
+  .touch-icon:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* Mobile tap */
+@media (hover: none) {
+  .touch-icon:active {
+    transform: scale(0.92);
+    background-color: var(--accent);
+  }
+}
+
+.touch-icon:active {
+  transform: scale(0.92);
+}
+
+/* Accordion/expandable touch effect */
+.touch-expand {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              background-color 0.2s ease-out;
+}
+
+/* Desktop hover */
+@media (hover: hover) and (pointer: fine) {
+  .touch-expand:hover {
+    background-color: var(--muted);
+  }
+}
+
+/* Mobile tap */
+@media (hover: none) {
+  .touch-expand:active {
+    transform: scale(0.99);
+    background-color: var(--accent);
+  }
+}
+
+.touch-expand:active {
+  transform: scale(0.99);
+  background-color: var(--muted);
+}
+
+/* Focus visible states for accessibility */
+.touch-button:focus-visible,
+.touch-card:focus-visible,
+.touch-expand:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Arrow animation on mobile tap */
+@media (hover: none) {
+  .touch-button:active .group-hover\:translate-x-1 {
+    transform: translateX(4px);
+  }
+}
+
+/* Group hover effects also work on mobile via active state */
+@media (hover: none) {
+  .group:active .group-hover\:scale-110 {
+    transform: scale(1.1);
+  }
+  
+  .group:active .group-hover\:bg-\[\#1a5336\] {
+    background-color: #1a5336;
+  }
+  
+  .group:active .group-hover\:bg-\[\#1a5336\]\/10 {
+    background-color: rgba(26, 83, 54, 0.1);
+  }
+  
+  .group:active .group-hover\:text-white {
+    color: white;
+  }
+  
+  .group:active .group-hover\:text-\[\#1a5336\] {
+    color: #1a5336;
+  }
+  
+  .group:active .group-hover\:border-\[\#1a5336\]\/40 {
+    border-color: rgba(26, 83, 54, 0.4);
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-in,
+  .animate-scale-in,
+  .animate-float,
+  .animate-float-slow,
+  .animate-pulse-soft,
+  .scroll-animate,
+  .scroll-animate-scale {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
