@@ -27,7 +27,7 @@ export function Hero() {
         >
           The{" "}
           <span className="text-[#1a5336] font-semibold">Barnes &amp; Noble</span>{" "}
-          Method That&apos;s Changing Everything
+          Discounts They Don&apos;t Advertise
         </h1>
 
         {/* Subheadline */}
@@ -36,7 +36,7 @@ export function Hero() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          Discover how people are saving on books, e-readers, gifts, and everyday reads.
+          Discover how readers are unlocking hidden discount codes on books, e-readers, gifts, and everyday reads.
         </p>
 
         {/* CTA Button */}
@@ -81,8 +81,8 @@ export function Hero() {
             />
           </div>
           <p className="text-sm text-muted-foreground/70 font-medium">
-            <span className="sm:hidden">Join 12,000+ readers who&apos;ve<br />already claimed their rewards.</span>
-            <span className="hidden sm:inline">Join 12,000+ readers who&apos;ve already claimed their rewards.</span>
+            <span className="sm:hidden">Join 12,000+ readers who&apos;ve<br />already claimed their discounts</span>
+            <span className="hidden sm:inline">Join 12,000+ readers who&apos;ve already claimed their discounts</span>
           </p>
         </div>
       </div>

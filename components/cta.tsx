@@ -61,7 +61,7 @@ export function CTA() {
               }`}
               style={{ transitionDelay: sectionVisible ? "400ms" : "0ms" }}
             >
-              Join thousands of readers who have already claimed their $500 reward. Your next great read is just a few clicks away.
+              Join thousands of readers who have already claimed their summer discount code. Your next great read is just a few clicks away.
             </p>
             
             <div

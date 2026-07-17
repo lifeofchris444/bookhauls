@@ -21,7 +21,7 @@ const faqs = [
     icon: CheckCircle,
     question: "How many do I need?",
     answer:
-      "Complete 5+ deals to receive your reward. The more deals you complete, the faster you can receive your gift card.",
+      "Complete 5+ deals to receive your reward. The more deals you complete, the faster you can receive your discount code.",
   },
 ];
 

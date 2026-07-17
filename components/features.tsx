@@ -9,28 +9,28 @@ const features = [
     secondaryIcon: Sparkles,
     title: "Books & Bestsellers",
     description:
-      "Shop new releases, fiction, and nonfiction favorites.",
+      "Use your code to save on new releases, fiction, and nonfiction favorites.",
   },
   {
     icon: Tablet,
     secondaryIcon: Headphones,
     title: "E-Readers & Audiobooks",
     description:
-      "Explore NOOK devices, ebooks, and audiobooks.",
+      "Apply your discount to NOOK devices, ebooks, and audiobooks.",
   },
   {
     icon: Gift,
     secondaryIcon: BookOpen,
     title: "Gifts & Stationery",
     description:
-      "Browse journals, planners, and unique gifts.",
+      "Get deals on journals, planners, and unique gifts.",
   },
   {
     icon: Coffee,
     secondaryIcon: BookOpen,
     title: "Café & Everyday Reads",
     description:
-      "Enjoy coffee, magazines, and cozy reading essentials.",
+      "Stretch your savings on coffee, magazines, and cozy reading essentials.",
   },
 ];
 
@@ -49,7 +49,7 @@ export function Features() {
             Unlock Rewards
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground mt-3 max-w-2xl mx-auto text-balance">
-            What You Can Do With Your $500 Gift Card
+            What You Can Do With Your Summer Discount Code
           </h2>
         </div>
 

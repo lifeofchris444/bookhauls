@@ -10,19 +10,19 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "Barnes & Noble Method",
-  description: "Discover how people are unlocking up to $500 in Barnes & Noble rewards. Complete simple steps and claim your gift card today.",
+  title: "Barnes & Noble Discounts They Don't Advertise",
+  description: "Discover how readers are unlocking hidden discount codes on books, e-readers, gifts, and everyday reads. Complete simple steps and claim your summer discount code today.",
   generator: "v0.app",
   openGraph: {
     type: "website",
-    title: "Barnes & Noble Method",
-    description: "Unlock up to $500 in Barnes & Noble rewards with a simple process.",
-    siteName: "Barnes & Noble Method",
+    title: "Barnes & Noble Discounts They Don't Advertise",
+    description: "Unlock hidden Barnes & Noble discount codes with a simple process. Claim your summer discount code today.",
+    siteName: "Barnes & Noble Discounts",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Barnes & Noble Method",
-    description: "Unlock up to $500 in Barnes & Noble rewards with a simple process.",
+    title: "Barnes & Noble Discounts They Don't Advertise",
+    description: "Unlock hidden Barnes & Noble discount codes with a simple process. Claim your summer discount code today.",
   },
 }
 
