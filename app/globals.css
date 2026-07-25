@@ -10,20 +10,20 @@
   --card-foreground: oklch(0.15 0 0);
   --popover: oklch(0.995 0 0);
   --popover-foreground: oklch(0.15 0 0);
-  --primary: oklch(0.42 0.09 155);
+  --primary: oklch(0.15 0 0);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.95 0.02 155);
+  --secondary: oklch(0.95 0 0);
   --secondary-foreground: oklch(0.15 0 0);
   --muted: oklch(0.93 0 0);
   --muted-foreground: oklch(0.45 0 0);
-  --accent: oklch(0.94 0.04 155);
+  --accent: oklch(0.9 0 0);
   --accent-foreground: oklch(0.15 0 0);
-  --destructive: oklch(0.55 0.21 25);
+  --destructive: oklch(0.50 0.21 25);
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(0.91 0 0);
   --input: oklch(0.93 0 0);
-  --ring: oklch(0.55 0.18 240);
-  --chart-1: oklch(0.55 0.18 240);
+  --ring: oklch(0.15 0 0);
+  --chart-1: oklch(0.15 0 0);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
@@ -31,13 +31,13 @@
   --radius: 0.75rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.55 0.18 240);
+  --sidebar-primary: oklch(0.15 0 0);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.94 0.03 240);
+  --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.55 0.18 240);
-  --bn-green: #1a5336;
+  --sidebar-ring: oklch(0.15 0 0);
+  --footlocker-black: #000000;
 }
 
 .dark {
@@ -76,7 +76,7 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-poppins), 'Poppins', system-ui, sans-serif;
+  --font-sans: var(--font-inter), 'Inter', system-ui, sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -388,24 +388,16 @@
     transform: scale(1.1);
   }
   
-  .group:active .group-hover\:bg-\[\#1a5336\] {
-    background-color: #1a5336;
-  }
-  
-  .group:active .group-hover\:bg-\[\#1a5336\]\/10 {
-    background-color: rgba(26, 83, 54, 0.1);
+  .group:active .group-hover\:bg-\[\#000000\] {
+    background-color: #000000;
   }
   
   .group:active .group-hover\:text-white {
     color: white;
   }
   
-  .group:active .group-hover\:text-\[\#1a5336\] {
-    color: #1a5336;
-  }
-  
-  .group:active .group-hover\:border-\[\#1a5336\]\/40 {
-    border-color: rgba(26, 83, 54, 0.4);
+  .group:active .group-hover\:border-\[\#000000\]\/40 {
+    border-color: rgba(0, 0, 0, 0.4);
   }
 }
 

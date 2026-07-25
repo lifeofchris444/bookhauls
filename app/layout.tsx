@@ -1,29 +1,92 @@
-import type { Metadata } from "next"
-import { Poppins } from "next/font/google"
+import type { Metadata, Viewport } from "next"
+import { Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-const poppins = Poppins({ 
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-poppins",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-inter",
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.bookhauls.com"),
   title: "Barnes & Noble Discounts They Don't Advertise",
-  description: "Discover how readers are unlocking hidden discount codes on books, e-readers, gifts, and everyday reads. Complete simple steps and claim your summer discount code today.",
+  description:
+    "Discover how readers are unlocking hidden discount codes on books, e-readers, gifts, and everyday reads.",
+  applicationName: "BookHauls",
+  keywords: [
+    "Barnes & Noble discounts",
+    "Barnes & Noble coupon codes",
+    "Barnes & Noble promo code",
+    "book discounts",
+    "cheap books online",
+    "Nook e-reader deals",
+    "bookish gifts",
+    "BookTok reads",
+  ],
+  authors: [{ name: "BookHauls", url: "https://www.bookhauls.com" }],
+  creator: "BookHauls",
+  publisher: "BookHauls",
+  category: "shopping",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   generator: "v0.app",
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     type: "website",
+    url: "https://www.bookhauls.com",
     title: "Barnes & Noble Discounts They Don't Advertise",
-    description: "Unlock hidden Barnes & Noble discount codes with a simple process. Claim your summer discount code today.",
-    siteName: "Barnes & Noble Discounts",
+    description:
+      "Discover how readers are unlocking hidden discount codes on books, e-readers, gifts, and everyday reads.",
+    siteName: "BookHauls",
+    locale: "en_US",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Barnes & Noble discounts for books, e-readers, and gifts",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Barnes & Noble Discounts They Don't Advertise",
-    description: "Unlock hidden Barnes & Noble discount codes with a simple process. Claim your summer discount code today.",
+    description:
+      "Discover how readers are unlocking hidden discount codes on books, e-readers, gifts, and everyday reads.",
+    images: ["/og-image.png"],
   },
+  other: {
+    "apple-mobile-web-app-title": "BookHauls",
+  },
+}
+
+export const viewport: Viewport = {
+  themeColor: "#1E5E3E",
+  colorScheme: "light",
+  width: "device-width",
+  initialScale: 1,
 }
 
 export default function RootLayout({
@@ -32,10 +95,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-background">
-      <body className={`${poppins.variable} ${poppins.className} antialiased`}>
+    <html lang="en" className="bg-white">
+      <body className={`${inter.variable} font-sans antialiased`}>
         {children}
-        {process.env.NODE_ENV === "production" && <Analytics />}
+        <Analytics />
       </body>
     </html>
   )
