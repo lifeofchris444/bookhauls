@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.bookhauls.com"),
   title: "Barnes & Noble Discounts They Don't Advertise",
   description:
-    "Discover how readers are unlocking hidden discount codes on books, e-readers, gifts, and everyday reads.",
+    "Discover how readers are unlocking hidden discount codes on books, journals, games, music, and more.",
   applicationName: "BookHauls",
   keywords: [
     "Barnes & Noble discounts",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     url: "https://www.bookhauls.com",
     title: "Barnes & Noble Discounts They Don't Advertise",
     description:
-      "Discover how readers are unlocking hidden discount codes on books, e-readers, gifts, and everyday reads.",
+      "Discover how readers are unlocking hidden discount codes on books, journals, games, music, and more.",
     siteName: "BookHauls",
     locale: "en_US",
     images: [
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Barnes & Noble discounts for books, e-readers, and gifts",
+        alt: "Barnes & Noble discounts for books, journals, games, and music",
       },
     ],
   },
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Barnes & Noble Discounts They Don't Advertise",
     description:
-      "Discover how readers are unlocking hidden discount codes on books, e-readers, gifts, and everyday reads.",
+      "Discover how readers are unlocking hidden discount codes on books, journals, games, music, and more.",
     images: ["/og-image.png"],
   },
   other: {

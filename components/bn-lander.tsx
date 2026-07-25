@@ -294,8 +294,8 @@ export default function BNRewardLander() {
               <span style={{ color: "#FFD84D" }}>Barnes &amp; Noble Discounts</span>{" "}
               They Don&apos;t Advertise
             </h1>
-            <p className="mt-6 text-lg md:text-xl text-white/85 max-w-xl mx-auto leading-relaxed text-pretty">
-              Discover how readers are unlocking hidden discount codes on books, e-readers, gifts, and everyday reads.
+            <p className="mt-6 text-lg md:text-xl text-white/85 max-w-[19rem] sm:max-w-xl mx-auto leading-relaxed text-pretty">
+              Discover how readers are unlocking hidden discount codes on books, journals, games, music, and more.
             </p>
             <div className="mt-9 flex items-center justify-center gap-x-5 gap-y-10 sm:gap-y-5 flex-wrap">
               <CTAButton large>Apply Now</CTAButton>
