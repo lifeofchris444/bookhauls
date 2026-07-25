@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 
 // ─────────────────────────────────────────────────────────────
 //  QUICK SETUP — edit these two values
@@ -11,47 +11,6 @@ const GREEN = "#1E5E3E";
 const GREEN_DEEP = "#0E3A25";
 const GREEN_BRIGHT = "#2E7D53";
 const INK = "#111213";
-
-// ── Scroll-reveal hook ────────────────────────────────────────
-function useReveal() {
-  useEffect(() => {
-    // Content is visible by default in CSS. We only "arm" (hide) elements that are
-    // safely below the fold, then fade them in — so a JS hiccup can never blank the page.
-    if (
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
-      !("IntersectionObserver" in window)
-    ) {
-      return;
-    }
-
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("revealed");
-            obs.unobserve(e.target);
-          }
-        });
-      },
-      // threshold 0 + bottom inset keeps tall cards reliable (a tall element may
-      // never show 15% of itself inside the viewport).
-      { threshold: 0, rootMargin: "0px 0px -60px 0px" },
-    );
-
-    const arm = () => {
-      const vh = window.innerHeight;
-      document.querySelectorAll<HTMLElement>("[data-reveal]:not(.reveal-armed)").forEach((el) => {
-        if (el.getBoundingClientRect().top > vh * 0.9) {
-          el.classList.add("reveal-armed");
-          obs.observe(el);
-        }
-      });
-    };
-    arm();
-
-    return () => obs.disconnect();
-  }, []);
-}
 
 const STEPS = [
   {
@@ -169,37 +128,11 @@ function CTAButton({
 }
 
 export default function BNRewardLander() {
-  const [lineProgress, setLineProgress] = useState(0);
-  const timelineRef = useRef<HTMLDivElement>(null);
   const [openFaq, setOpenFaq] = useState(0);
-  useReveal();
-
-  // Draw the timeline as the section scrolls into view
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setLineProgress(100);
-      return;
-    }
-    const onScroll = () => {
-      const el = timelineRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const passed = Math.min(Math.max(vh * 0.75 - rect.top, 0), rect.height);
-      setLineProgress((passed / rect.height) * 100);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
     <div className="min-h-screen bg-white font-sans antialiased overflow-x-hidden" style={{ color: INK }}>
       <style>{`
-          [data-reveal] { transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
-          [data-reveal].reveal-armed { opacity: 0; transform: translateY(28px); }
-          [data-reveal].reveal-armed.revealed { opacity: 1; transform: none; }
-
         .cta-btn { transition: transform .15s ease, box-shadow .2s ease; }
         .cta-btn:hover { transform: scale(1.04); box-shadow: 0 12px 32px rgba(0,0,0,0.22); }
         .cta-btn:active { transform: scale(0.98); }
@@ -225,9 +158,6 @@ export default function BNRewardLander() {
         .cat-card:hover { transform: translateY(-8px) scale(1.01); box-shadow: 0 24px 48px rgba(17,18,19,0.12); }
         .cat-card:hover .cat-icon { transform: translateY(-4px) rotate(4deg) scale(1.08); }
         .cat-icon { transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
-          .cat-card[data-reveal] { transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1); }
-          .cat-card[data-reveal].reveal-armed { opacity: 0; transform: translateY(40px) scale(.94) rotate(-1.2deg); }
-          .cat-card[data-reveal].reveal-armed.revealed { opacity: 1; transform: none; }
         .card-shine { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg, transparent 35%, rgba(30,94,62,0.05) 47%, rgba(255,255,255,0.55) 52%, transparent 65%); background-size: 260% 100%; animation: cardShine 7s ease-in-out infinite; }
         @keyframes cardShine { 0%, 55% { background-position: 135% 0; } 85%, 100% { background-position: -60% 0; } }
         .icon-bob { animation: iconBob 4.5s ease-in-out infinite; }
@@ -256,7 +186,6 @@ export default function BNRewardLander() {
 
         @media (prefers-reduced-motion: reduce) {
           *, .orb, .drifter { animation: none !important; transition: none !important; }
-          [data-reveal] { opacity: 1; transform: none; }
         }
       `}</style>
 
@@ -284,7 +213,7 @@ export default function BNRewardLander() {
         </div>
 
         <div className="relative mx-auto max-w-3xl px-6 pt-12 pb-20 md:pt-20 md:pb-24 text-center">
-          <div className="text-white" data-reveal>
+          <div className="text-white">
             <span className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur px-4 py-1.5 text-sm font-medium">
               <span className="w-2 h-2 rounded-full bg-green-400 pulse-dot" />
               Applications Open
@@ -322,7 +251,7 @@ export default function BNRewardLander() {
       {/* ── FIVE STEPS — THE PATH TO YOUR DISCOUNTS ─────── */}
       <section className="relative overflow-hidden bg-white">
         <div className="relative mx-auto max-w-5xl px-6 py-16 md:py-20">
-          <div className="text-center" data-reveal>
+          <div className="text-center">
             <div className="text-sm font-semibold tracking-widest uppercase" style={{ color: GREEN }}>
               How it works
             </div>
@@ -332,21 +261,19 @@ export default function BNRewardLander() {
           </div>
 
           {/* Timeline */}
-          <div ref={timelineRef} className="relative mt-10">
+            <div className="relative mt-10">
             {/* base line */}
             <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[3px] rounded-full bg-gray-200" />
             {/* progress line */}
             <div
-              className="t-line-progress absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 w-[3px] rounded-full"
-              style={{ height: `${lineProgress}%` }}
-            />
+                className="t-line-progress absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[3px] rounded-full"
+              />
 
             {STEPS.map((step, i) => {
               const leftSide = i % 2 === 0;
               return (
                 <div
                   key={i}
-                  data-reveal
                   className="relative grid grid-cols-[3rem_1fr] md:grid-cols-[1fr_3.5rem_1fr] gap-x-4 md:gap-x-8 items-center pb-6 md:pb-8 last:pb-0"
                 >
                   {/* ghost step number — fills the side opposite the card */}
@@ -392,7 +319,7 @@ export default function BNRewardLander() {
             })}
           </div>
 
-          <div className="mt-10 text-center" data-reveal>
+          <div className="mt-10 text-center">
             <CTAButton dark large>
               Apply Now
             </CTAButton>
@@ -403,7 +330,7 @@ export default function BNRewardLander() {
       {/* ── WHAT YOUR GIFT CARD COVERS ──────────────────── */}
       <section style={{ backgroundColor: "#F7F7F8" }}>
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-20 text-center">
-          <div data-reveal>
+          <div>
             <div className="text-sm font-semibold tracking-widest uppercase" style={{ color: GREEN }}>
               Unlock rewards
             </div>
@@ -416,8 +343,6 @@ export default function BNRewardLander() {
             {CATEGORIES.map((c, i) => (
               <div
                 key={c.t}
-                data-reveal
-                style={{ transitionDelay: `${i * 0.12}s` }}
                 className="cat-card relative overflow-hidden rounded-3xl bg-white border border-gray-100 shadow-sm p-7 flex items-start gap-5"
               >
                 {/* rolling light sweep */}
@@ -449,7 +374,7 @@ export default function BNRewardLander() {
       {/* ── FAQ ─────────────────────────────────────────── */}
       <section className="bg-white">
         <div className="mx-auto max-w-3xl px-6 py-16 md:py-20 text-center">
-          <div data-reveal>
+          <div>
             <div className="text-sm font-semibold tracking-widest uppercase" style={{ color: GREEN }}>
               Questions &amp; answers
             </div>
@@ -458,7 +383,7 @@ export default function BNRewardLander() {
             </h2>
           </div>
 
-          <div className="mt-10 space-y-4 text-left" data-reveal>
+          <div className="mt-10 space-y-4 text-left">
             {FAQS.map((f, i) => (
               <div key={f.q} className="rounded-2xl bg-white border border-gray-200 shadow-sm">
                 <button
@@ -523,7 +448,7 @@ export default function BNRewardLander() {
         <div className="orb w-80 h-80 -bottom-24 -right-16" style={{ backgroundColor: "#0E3A25", animationDelay: "-5s" }} />
 
         <div className="relative mx-auto max-w-4xl px-6 py-16 md:py-24 text-center text-white">
-          <div data-reveal>
+          <div>
             <span className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur px-4 py-1.5 text-sm font-medium">
               <span className="w-2 h-2 rounded-full bg-green-400 pulse-dot" />
               Applications Open
@@ -537,7 +462,7 @@ export default function BNRewardLander() {
             </p>
           </div>
 
-          <div className="mt-9 md:mt-10" data-reveal style={{ transitionDelay: ".15s" }}>
+          <div className="mt-9 md:mt-10">
             <CTAButton large>Apply Now</CTAButton>
           </div>
         </div>
