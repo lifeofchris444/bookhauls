@@ -5,7 +5,7 @@ import { useState } from "react";
 // ─────────────────────────────────────────────────────────────
 //  QUICK SETUP — edit these two values
 // ─────────────────────────────────────────────────────────────
-const AFFILIATE_LINK = "https://trksy.org/aff_c?offer_id=4347&aff_id=26188"; // ← your affiliate/offer URL (every CTA uses it)
+const AFFILIATE_LINK = "https://linkthem.net/?offer_id=4348&aff_id=26188"; // ← your affiliate/offer URL (every CTA uses it)
 
 const GREEN = "#1E5E3E";
 const GREEN_DEEP = "#0E3A25";
@@ -30,7 +30,7 @@ const STEPS = [
     icon: "M3 10h18v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9z M12 10v11 M3 14h18 M12 10c-2.5 0-4-1.2-4-2.8C8 5.5 10 5 12 7c2-2 4-1.5 4 .2 0 1.6-1.5 2.8-4 2.8z",
   },
   {
-    t: "Get your discount",
+    t: "Receive your discount",
     d: "Delivered straight to your inbox.",
     icon: "M8 21h8 M12 17v4 M7 4h10v5a5 5 0 01-10 0V4z M7 6H4v1a4 4 0 004 4 M17 6h3v1a4 4 0 01-4 4",
   },
@@ -218,7 +218,7 @@ export default function BNRewardLander() {
               <span className="w-2 h-2 rounded-full bg-green-400 pulse-dot" />
               Applications Open
             </span>
-            <h1 className="mt-6 font-black tracking-tight leading-[1.08] sm:leading-[1.03] text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl text-balance">
+            <h1 className="mt-6 font-black tracking-tight leading-[1.08] sm:leading-[1.03] text-[1.5rem] min-[368px]:text-[1.7rem] min-[400px]:text-[1.9rem] min-[432px]:text-[2.05rem] min-[464px]:text-[2.25rem] min-[496px]:text-[2.4rem] min-[528px]:text-[2.55rem] min-[560px]:text-[2.75rem] min-[608px]:text-[3rem] min-[640px]:text-[3.15rem] min-[672px]:text-[3.35rem] min-[704px]:text-[3.5rem] min-[736px]:text-[3.7rem] min-[768px]:text-[3.85rem] text-balance">
               The{" "}
               <span style={{ color: "#FFD84D" }}>Barnes &amp; Noble Discounts</span>{" "}
               They Don&apos;t Advertise
@@ -230,13 +230,20 @@ export default function BNRewardLander() {
               <CTAButton large>Apply Now</CTAButton>
               <div className="flex items-center gap-3">
                 <div className="flex -space-x-2">
-                  {["/avatars/reader-1.png", "/avatars/reader-2.png", "/avatars/reader-3.png"].map((src, i) => (
-                    <img
-                      key={i}
-                      src={src || "/placeholder.svg"}
-                      alt="Reader who claimed a discount"
-                      className="w-9 h-9 rounded-full border-2 border-white/60 object-cover"
-                    />
+                  {["/avatars/reader-1.webp", "/avatars/reader-2.webp", "/avatars/reader-3.webp"].map((src) => (
+                    <span
+                      key={src}
+                      className="block w-9 h-9 shrink-0 overflow-hidden rounded-full border-2 border-white/60"
+                      style={{ backgroundColor: GREEN_BRIGHT }}
+                    >
+                      <img
+                        src={src}
+                        alt="Reader who claimed a discount"
+                        width={36}
+                        height={36}
+                        className="block w-full h-full object-cover text-transparent"
+                      />
+                    </span>
                   ))}
                 </div>
                 <span className="text-white/80 text-sm leading-tight max-w-[180px]">
@@ -327,7 +334,7 @@ export default function BNRewardLander() {
         </div>
       </section>
 
-      {/* ── WHAT YOUR GIFT CARD COVERS ──────────────────── */}
+      {/* ── WHAT YOUR DISCOUNT COVERS ──────────────────── */}
       <section style={{ backgroundColor: "#F7F7F8" }}>
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-20 text-center">
           <div>
@@ -335,7 +342,7 @@ export default function BNRewardLander() {
               Unlock rewards
             </div>
             <h2 className="mt-3 font-black tracking-tight text-3xl md:text-5xl text-balance">
-              What You Can Do With Your Discount Code
+              What You Can Do With Your Discount
             </h2>
           </div>
 

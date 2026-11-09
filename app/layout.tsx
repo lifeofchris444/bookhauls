@@ -11,7 +11,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.bookhauls.com"),
-  title: "Barnes & Noble Discounts They Don't Advertise",
+  title: "The Barnes & Noble Discounts They Don't Advertise",
   description:
     "Discover how readers are unlocking hidden discount codes on books, journals, games, music, and more.",
   applicationName: "BookHauls",
@@ -45,18 +45,16 @@ export const metadata: Metadata = {
   generator: "v0.app",
   icons: {
     icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/favicon-512x512.png", sizes: "512x512", type: "image/png" },
+      { url: "/icon-light-32x32.png", media: "(prefers-color-scheme: light)" },
+      { url: "/icon-dark-32x32.png", media: "(prefers-color-scheme: dark)" },
+      { url: "/icon.svg", type: "image/svg+xml" },
     ],
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    apple: "/apple-icon.png",
   },
   openGraph: {
     type: "website",
     url: "https://www.bookhauls.com",
-    title: "Barnes & Noble Discounts They Don't Advertise",
+    title: "The Barnes & Noble Discounts They Don't Advertise",
     description:
       "Discover how readers are unlocking hidden discount codes on books, journals, games, music, and more.",
     siteName: "BookHauls",
@@ -72,7 +70,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Barnes & Noble Discounts They Don't Advertise",
+    title: "The Barnes & Noble Discounts They Don't Advertise",
     description:
       "Discover how readers are unlocking hidden discount codes on books, journals, games, music, and more.",
     images: ["/og-image.png"],
